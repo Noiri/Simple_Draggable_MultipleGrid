@@ -1,7 +1,7 @@
-import { render } from 'react-dom'
-import { DndProvider } from 'react-dnd'
-import { HTML5Backend } from 'react-dnd-html5-backend'
-import {Container} from './Container'
+import { render } from "react-dom";
+import { DndProvider } from "react-dnd";
+import { HTML5Backend } from "react-dnd-html5-backend";
+import { Container } from "./Components/Container";
 
 function App() {
   return (
@@ -10,8 +10,8 @@ function App() {
         <Container />
       </DndProvider>
     </div>
-  )
+  );
 }
 
-const rootElement = document.getElementById('root')
-render(<App />, rootElement)
+const rootElement = document.getElementById("root");
+render(<App />, rootElement);
