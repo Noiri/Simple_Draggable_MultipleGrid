@@ -1,24 +1,8 @@
-import { FC, useRef, useState } from "react";
+import { FC } from "react";
 import { useDrag, useDrop, DropTargetMonitor } from "react-dnd";
 import { ItemTypes } from "./ItemTypes";
 
 import { SimpleCard } from "./SimpleCard";
-
-const style = {
-  border: "1px dashed gray",
-  padding: "0.5rem 1rem",
-  marginBottom: ".5rem",
-  backgroundColor: "white",
-};
-
-const handleStyle = {
-  backgroundColor: "green",
-  width: "1rem",
-  height: "1rem",
-  display: "inline-block",
-  marginRight: "0.75rem",
-  cursor: "move",
-};
 
 export interface CardProps {
   id: any;
@@ -42,31 +26,15 @@ export const Card: FC<CardProps> = ({
   hoverIndex,
   setHoverIndex,
 }) => {
-  const refx = useRef<HTMLDivElement>(null);
   const [_, drop] = useDrop({
     accept: ItemTypes.CARD,
     collect(monitor) {
       return {};
     },
     hover(item: DragItem, monitor: DropTargetMonitor) {
-      /*if (!refx.current) {
-        return;
-      }
-      */
-      //const dragIndex = item.index;
-      //const hoverIndex = index;
-
       setHoverIndex(index);
-
-      // Don't replace items with themselves
-      //if (dragIndex === hoverIndex) {
-      //  return;
-      //}
     },
-    //ここがとてもキモです．
     drop(item: DragItem, monitor: DropTargetMonitor) {
-      console.log("from = ", item!.index);
-      console.log("to = ", index);
       setHoverIndex(-1); //HoverIndexをリセットする.
       moveCard(item!.index, index);
     },
