@@ -1,7 +1,6 @@
 import { FC } from "react";
 import { useDrag, useDrop, DropTargetMonitor } from "react-dnd";
 import { ItemTypes } from "./ItemTypes";
-
 import { SimpleCard } from "./SimpleCard";
 
 export interface CardProps {
