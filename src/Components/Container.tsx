@@ -5,46 +5,10 @@ import { AddButton } from "./AddButton";
 
 import "./main.css";
 
-export interface Item {
-  id: number;
-  text: string;
-}
-
-export interface ContainerState {
-  cards: Item[];
-}
+import { Init_data } from "../etc/Init_data";
 
 export const Container: FC = () => {
-  const [cards, setCards] = useState([
-    {
-      id: 1,
-      text: "id:1",
-    },
-    {
-      id: 2,
-      text: "id:2",
-    },
-    {
-      id: 3,
-      text: "id:3",
-    },
-    {
-      id: 4,
-      text: "id:4",
-    },
-    {
-      id: 5,
-      text: "id:5",
-    },
-    {
-      id: 6,
-      text: "id:6",
-    },
-    {
-      id: 7,
-      text: "id:7",
-    },
-  ]);
+  const [cards, setCards] = useState(Init_data);
 
   const moveCard = useCallback(
     (dragIndex: number, hoverIndex: number) => {
